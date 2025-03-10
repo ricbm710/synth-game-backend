@@ -22,6 +22,7 @@ CREATE TABLE attempts (
 );
 
 select * from synths
+select id,manufacturer,model,description,image_url,times_selected,times_guessed from synths
 
 INSERT INTO synths (manufacturer, model, description, image_url)
 VALUES
