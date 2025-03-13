@@ -8,7 +8,10 @@ export const getAllSynths = async (req: Request, res: Response) => {
     res.status(200).json(result);
   } catch (error: unknown) {
     console.error(error);
-    const message = error instanceof Error ? error.message : "Unknown error";
+    const message =
+      error instanceof Error
+        ? "Something went wrong on the server"
+        : "Unknown error";
     res.status(500).json({ error: message });
   }
 };
@@ -32,7 +35,10 @@ export const getSynthById = async (req: Request, res: Response) => {
     res.status(200).json(result);
   } catch (error: unknown) {
     console.error(error);
-    const message = error instanceof Error ? error.message : "Unknown error";
+    const message =
+      error instanceof Error
+        ? "Something went wrong on the server"
+        : "Unknown error";
     res.status(500).json({ error: message });
   }
 };
