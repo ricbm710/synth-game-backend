@@ -29,7 +29,7 @@ export const getSynthById = async (req: Request, res: Response) => {
   try {
     const result = await getSynthByIdFromDb(synthId);
     if (!result) {
-      res.status(404).json({ error: "Synth not found." });
+      res.status(404).json({ error: "Synth not found in DB." });
       return;
     }
     res.status(200).json(result);

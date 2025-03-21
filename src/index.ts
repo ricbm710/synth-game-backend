@@ -4,7 +4,8 @@ import cors from "cors";
 //db config
 import { pool } from "./db";
 //routes
-import synthRoutes from "../src/routes/synthRoutes";
+import synthRoutes from "./routes/synthRoutes";
+import playerRoutes from "./routes/playerRoutes";
 
 dotenv.config();
 
@@ -21,6 +22,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api", synthRoutes);
+app.use("/api", playerRoutes);
 
 //start
 app.listen(PORT, () => {
