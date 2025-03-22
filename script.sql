@@ -10,7 +10,7 @@ CREATE TABLE synths (
 );
 create table players (
 	id serial primary key,
-	player_name varchar(255) not null
+	player_name varchar(255) not null unique
 );
 CREATE TABLE attempts (
 	id SERIAL PRIMARY KEY,
@@ -24,9 +24,10 @@ CREATE TABLE attempts (
 select * from synths
 select manufacturer,model,description,image_url,times_selected,times_guessed from synths where id=5
 
-insert into players (player_name) values ('Ricardo')
+
 select * from players
 delete from players
+
 
 INSERT INTO synths (manufacturer, model, description, image_url)
 VALUES

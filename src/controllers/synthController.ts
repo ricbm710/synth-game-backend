@@ -6,6 +6,7 @@ export const getAllSynths = async (req: Request, res: Response) => {
   try {
     const result = await getAllSynthsFromDb();
     res.status(200).json(result);
+    console.log("getAllSynths successful");
   } catch (error: unknown) {
     console.error(error);
     const message =
@@ -33,6 +34,7 @@ export const getSynthById = async (req: Request, res: Response) => {
       return;
     }
     res.status(200).json(result);
+    console.log("getSynthById Successful");
   } catch (error: unknown) {
     console.error(error);
     const message =
