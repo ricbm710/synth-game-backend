@@ -12,7 +12,6 @@ export const createPlayer = async (req: Request, res: Response) => {
   }
   //check if name doesn't exist
   const playerExists = await playerExistsInDb(player_name);
-  console.log(playerExists);
   if (playerExists) {
     res.status(400).json({ error: "player_name already exists." });
     console.error("player_name already exists.");

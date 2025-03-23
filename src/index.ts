@@ -6,6 +6,7 @@ import { pool } from "./db";
 //routes
 import synthRoutes from "./routes/synthRoutes";
 import playerRoutes from "./routes/playerRoutes";
+import attemptRoutes from "./routes/attemptRoutes";
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ app.get("/", (req, res) => {
 
 app.use("/api", synthRoutes);
 app.use("/api", playerRoutes);
+app.use("/api", attemptRoutes);
 
 //start
 app.listen(PORT, () => {

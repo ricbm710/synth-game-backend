@@ -1,11 +1,8 @@
 //db config
 import { query } from "../db";
 
-export const createPlayerInDb = async (player_name: string): Promise<null> => {
-  const result = await query("insert into players (player_name) values ($1)", [
-    player_name,
-  ]);
-  return null;
+export const createPlayerInDb = async (player_name: string) => {
+  await query("insert into players (player_name) values ($1)", [player_name]);
 };
 
 export const playerExistsInDb = async (
