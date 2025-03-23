@@ -21,8 +21,9 @@ export const playerExistsInDb = async (
 export const getPlayerIdFromDb = async (
   player_name: string
 ): Promise<number | null> => {
-  const result = await query("select id from players where player_name=$1", [
-    player_name,
-  ]);
-  return result.rows.length > 0 ? (result.rows[0] as number) : null;
+  const result = await query<{ id: number }>(
+    "select id from players where player_name=$1",
+    [player_name]
+  );
+  return result.rows.length > 0 ? result.rows[0].id : null;
 };
