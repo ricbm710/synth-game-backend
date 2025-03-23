@@ -21,7 +21,9 @@ export const createPlayer = async (req: Request, res: Response) => {
 
   try {
     await createPlayerInDb(player_name);
-    res.status(201).json({ message: "Player created successfully" });
+    res
+      .status(201)
+      .json({ message: `Player ${player_name} created successfully` });
     console.log("createPlayer successful");
   } catch (error: unknown) {
     console.error(error);
