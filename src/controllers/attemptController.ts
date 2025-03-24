@@ -1,7 +1,10 @@
 import { Request, Response } from "express";
 //models
 import { getPlayerIdFromDb } from "../models/playerModel";
-import { createAttemptInDb } from "../models/attemptModel";
+import {
+  createAttemptInDb,
+  getLeaderboardFromDb,
+} from "../models/attemptModel";
 
 export const createAttempt = async (req: Request, res: Response) => {
   const { player_name, score } = req.body;
@@ -25,6 +28,21 @@ export const createAttempt = async (req: Request, res: Response) => {
     await createAttemptInDb(player_id, score);
     res.status(201).json({ message: "Attempt created successfully" });
     console.log("Attempt created successfully");
+  } catch (error: unknown) {
+    console.error(error);
+    const message =
+      error instanceof Error
+        ? "Something went wrong on the server"
+        : "Unknown error";
+    res.status(500).json({ error: message });
+  }
+};
+
+export const getLeaderboard = async (req: Request, res: Response) => {
+  try {
+    const result = await getLeaderboardFromDb();
+    res.status(200).json(result);
+    console.log("getLeaderboard successful");
   } catch (error: unknown) {
     console.error(error);
     const message =

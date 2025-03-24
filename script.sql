@@ -28,6 +28,8 @@ select manufacturer,model,description,image_url,times_selected,times_guessed fro
 select * from players
 delete from players
 
+select a.id, a.player_id,p.player_name, a.score from attempts a, players p where a.player_id = p.id
+
 
 INSERT INTO synths (manufacturer, model, description, image_url)
 VALUES
