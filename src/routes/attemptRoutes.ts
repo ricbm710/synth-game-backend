@@ -8,6 +8,6 @@ import {
 const router = express.Router();
 
 router.post("/attempts", createAttempt);
-router.post("/attempts/leaderboard", getLeaderboard);
+router.get("/attempts/leaderboard", getLeaderboard);
 
 export default router;
