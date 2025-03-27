@@ -17,3 +17,14 @@ export const getSynthByIdFromDb = async (id: Number): Promise<Synth | null> => {
   );
   return result.rows[0] || null;
 };
+
+export const updateSynthTimesFromDb = async (id: number, guessed: boolean) => {
+  const queryString = `
+    UPDATE synths 
+    SET times_selected = times_selected + 1
+    ${guessed ? ", times_guessed = times_guessed + 1" : ""}
+    WHERE id = $1
+  `;
+  console.log(queryString);
+  await query(queryString, [id]);
+};

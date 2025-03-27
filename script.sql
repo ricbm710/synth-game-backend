@@ -28,7 +28,12 @@ select manufacturer,model,description,image_url,times_selected,times_guessed fro
 select * from players
 delete from players
 
-select a.id, a.player_id,p.player_name, a.score from attempts a, players p where a.player_id = p.id
+select p.player_name as Player, a.score as Score, to_char(a.time_started, 'Mon DD, YYYY') as Date, to_char(a.time_started, 'HH24:MI') as UTC_Time 
+from attempts a, players p where a.player_id = p.id
+order by a.score desc
+limit 10
+
+delete from attempts where score=0
 
 
 INSERT INTO synths (manufacturer, model, description, image_url)
