@@ -8,7 +8,9 @@ import synthRoutes from "./routes/synthRoutes";
 import playerRoutes from "./routes/playerRoutes";
 import attemptRoutes from "./routes/attemptRoutes";
 
-dotenv.config();
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config();
+}
 
 const app = express();
 const PORT = process.env.PORT || 3000;
