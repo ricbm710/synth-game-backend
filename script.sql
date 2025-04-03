@@ -27,6 +27,7 @@ select manufacturer,model,description,image_url,times_selected,times_guessed fro
 delete from synths s 
 
 select * from players
+select * from attempts 
 delete from players
 
 /*get leaderboard*/

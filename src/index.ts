@@ -21,6 +21,8 @@ app.use(express.json());
 
 //routes
 app.get("/", (req, res) => {
+  //debug
+  console.log(process.env.DATABASE_URL);
   res.send("Synthgame Backend");
 });
 
