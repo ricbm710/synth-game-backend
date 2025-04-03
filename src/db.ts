@@ -5,7 +5,6 @@ import "dotenv/config";
 
 const dbLocation = process.env.DB_LOCATION;
 
-//localhost
 export const pool =
   dbLocation === "neon"
     ? new Pool({
